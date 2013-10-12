@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Betastore</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'layouts/header' %>
+  <div style="margin: 0 auto; text-align: center">
+
+    <%= image_tag "http://whatweekly.com/wp-content/uploads/2012/08/betamorelogo.jpg", width: 600 %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
+</body>
+</html>
