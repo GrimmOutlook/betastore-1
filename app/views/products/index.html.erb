@@ -1,3 +1,9 @@
+<% if logged_in? %>
+	<%= button_to "Log Out", log_out_path, method: 'post', :class => "btn btn-default" %>
+<% else %>
+ 	<%= button_to "Log In", log_in_path, method: 'get', :class => "btn btn-default" %>
+<% end %>
+
 <% @page_title = "Products" %>
 <h1><%= @page_title %></h1>
 
@@ -18,10 +24,3 @@
 		</div>
 	<% end %>
 </div>
-
-
-<% if logged_in? %>
-	<%= button_to "Log Out", log_out_path, method: 'post', :class => "btn btn-default" %>
-<% else %>
- 	<%= button_to "Log In", log_in_path, method: 'get', :class => "btn btn-default" %>
-<% end %>
