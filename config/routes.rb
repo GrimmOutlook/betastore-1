@@ -1,6 +1,12 @@
 Betastore::Application.routes.draw do
-	get '/products' => 'products#index'
 
+	namespace :admin do
+		resources :products
+		root :to => 'products#index'
+	end
+
+	resources :products
+	
   	resources :subscriptions
   	root :to => 'subscriptions#index'
 
