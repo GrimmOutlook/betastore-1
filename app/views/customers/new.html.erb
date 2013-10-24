@@ -22,9 +22,9 @@
     <%= f.password_field :password %> 
   </div>
 
-  <%= f.submit 'Sign Up' %>
+  <%= f.submit 'Sign Up', :class => "btn btn-default"%>
 <% end %>
 
 <form method="GET" action="/log_in">
-  <button type="link">Already have an account?</button>
+  <button type="link" class="btn btn-default">Already have an account?</button>
 </form>
