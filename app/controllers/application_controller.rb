@@ -5,15 +5,20 @@ class ApplicationController < ActionController::Base
 	
 	before_filter :require_log_in
 
-  	protected
+  protected
 
  	def require_log_in
    		redirect_to '/log_in' unless logged_in?
   	end
 
-  	def logged_in?
-   		cookies[:email].present?
+  helper_method :logged_in?, :current_customer
+  def logged_in?
+   		cookies.signed[:customer_id].present?
  	end
+
+  def current_customer
+    @customer ||= Customer.find(cookies.signed[:customer_id])
+  end
 
 
 end

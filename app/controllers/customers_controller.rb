@@ -6,10 +6,9 @@ class CustomersController < ApplicationController
   end
 
   def create
-
     @customer = Customer.new(customer_params)
     if @customer.save
-      cookies[:email] = @customer.email
+      cookies.signed[:customer_id] = @customer.id
       redirect_to products_path
     else
       render 'new'

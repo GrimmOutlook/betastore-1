@@ -5,4 +5,6 @@ class Customer < ActiveRecord::Base
   	has_many :password_resets
 
   	validates_presence_of :name, :email, :password
+
+  	has_secure_password validations: false
 end
