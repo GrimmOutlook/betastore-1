@@ -1,19 +1,27 @@
-<p><h1><%= @page_title %></h1></p>
-<table>
-			<tr>
-				<td> <a href="http://pjb3.github.io/betastore/products/hat"> <img src="http://pjb3.github.io/betastore/products/hat.jpg"/> <p>Hat</p> </a> </td>
-				<td> <a href="http://pjb3.github.io/betastore/products/hoodie"> <img src="http://pjb3.github.io/betastore/products/hoodie.jpg"/> <p>Hoodie</p></a> </td>
-				<td> <a href="http://pjb3.github.io/betastore/products/iphone_case"> <img src="http://pjb3.github.io/betastore/products/iphone_case.jpg"/> <p>iPhone Case</p> </a> </td>
-			</tr>
-			<tr>
-				<td> <a href="http://pjb3.github.io/betastore/products/journal"> <img src="http://pjb3.github.io/betastore/products/journal.jpg"/> <p>Journal</p> </a> </td>
-				<td> <a href="http://pjb3.github.io/betastore/products/shirt"> <img src="http://pjb3.github.io/betastore/products/shirt.jpg"/> <p>Shirt</p> </a> </td>
-				<td> <a href="http://pjb3.github.io/betastore/products/sticker"> <img src="http://pjb3.github.io/betastore/products/sticker.jpg"/> <p>Sticker</p> </a> </td>
-			</tr>
-		</table>
+<% @page_title = "Products" %>
+<h1><%= @page_title %></h1>
 
-<% if cookies[:email].present? %>
-	<%= link_to "Log Out", log_out_path, method: 'post' %>
+<% if logged_in? %>
+	<h3>Welcome <%= current_customer.name %></h3>
+<% end %>
+
+<div id="main-content">
+	<% @products.each do |product| %>
+		<div class="content">
+			<a href=#>
+				<p><img src="<%= product.url %>"/></p>
+				<h4><%= product.name %></h4>
+			</a>
+			<p><%= number_to_currency product.price %>
+				Added <%= time_ago_in_words product.created_at %> ago
+			</p>
+		</div>
+	<% end %>
+</div>
+
+
+<% if logged_in? %>
+	<%= button_to "Log Out", log_out_path, method: 'post', :class => "btn btn-default" %>
 <% else %>
- 	<%= link_to "Log In", log_in_path, method: 'get' %>
+ 	<%= button_to "Log In", log_in_path, method: 'get', :class => "btn btn-default" %>
 <% end %>
