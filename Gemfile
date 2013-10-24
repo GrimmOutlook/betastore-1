@@ -27,6 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# To use the API
+gem 'httparty'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -46,4 +49,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :development do
   gem 'hirb'
+  gem 'quiet_assets'
 end
