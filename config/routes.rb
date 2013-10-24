@@ -17,6 +17,10 @@ Betastore::Application.routes.draw do
 	get '/sign_up' => 'customers#new', as: 'sign_up'
 	post '/sign_up' => 'customers#create'
 
+	resources :orders do
+    	resource :refund
+	end 
+
 
 
 
