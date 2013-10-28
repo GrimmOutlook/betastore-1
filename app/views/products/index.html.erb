@@ -1,9 +1,3 @@
-<% if logged_in? %>
-	<%= button_to "Log Out", log_out_path, method: 'post', :class => "btn btn-default" %>
-<% else %>
- 	<%= button_to "Log In", log_in_path, method: 'get', :class => "btn btn-default" %>
-<% end %>
-
 <% @page_title = "Products" %>
 <h1><%= @page_title %></h1>
 
@@ -11,16 +5,24 @@
 	<h3>Welcome <%= current_customer.name %></h3>
 <% end %>
 
-<div id="main-content">
-	<% @products.each do |product| %>
-		<div class="content">
-			<a href=#>
-				<p><img src="<%= product.url %>"/></p>
-				<h4><%= product.name %></h4>
-			</a>
-			<p><%= number_to_currency product.price %>
-				Added <%= time_ago_in_words product.created_at %> ago
-			</p>
-		</div>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<% @products.each do |product| %>
+			<div class="col-md-6">
+				<a href=#>
+					<p style="width:469px;height:469px;"><img src="<%= product.url %>"/></p>
+					<h4><%= product.name %></h4>
+				</a>
+				<p><%= number_to_currency product.price %>
+					Added <%= time_ago_in_words product.created_at %> ago
+				</p>
+			</div>
+		<% end %>
+	</div>
 </div>
+
+<% if logged_in? %>
+	<%= button_to "Log Out", log_out_path, method: 'post', :class => "btn btn-default" %>
+<% else %>
+ 	<%= button_to "Log In", log_in_path, method: 'get', :class => "btn btn-default" %>
+<% end %>
