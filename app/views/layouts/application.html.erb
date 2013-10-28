@@ -7,9 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render 'layouts/header' %>
   <div style="margin: 0 auto; text-align: center">
     <%= image_tag "logo.jpg", width: 600 %>
+    <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>

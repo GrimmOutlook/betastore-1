@@ -17,8 +17,7 @@ class ApplicationController < ActionController::Base
  	end
 
   def current_customer
-    @customer ||= Customer.find(cookies.signed[:customer_id])
+      @customer ||= Customer.find(cookies.signed[:customer_id])
   end
-
 
 end

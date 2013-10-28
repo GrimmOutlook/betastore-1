@@ -1,1 +1,9 @@
-
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to "Products", products_path, method: 'get' %></li>
+  <% if logged_in? %>
+  	<li><%= link_to "Log Out", log_out_path, method: 'post' %></li>
+  <% else %>
+  	<li><%= link_to "Sign Up", sign_up_path, method: 'get' %></li>
+  	<li><%= link_to "Log In", log_in_path, method: 'get' %></li>
+  <% end %>
+</ul>
