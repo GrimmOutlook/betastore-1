@@ -1,6 +1,8 @@
-<h1>Editing admin_product</h1>
+<ol class="breadcrumb">
+  <li><%= link_to 'Products', admin_products_path %></li>
+  <li><%= link_to @product.name, admin_product_path(@product)
+ %></li>
+  <li class="active">Edit</li>
+</ol>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @admin_product %> |
-<%= link_to 'Back', admin_products_path %>
