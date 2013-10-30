@@ -6,5 +6,6 @@ class Customer < ActiveRecord::Base
 
   	validates_presence_of :name, :email, :password
 
-  	has_secure_password validations: false
+  	has_secure_password
+
 end
