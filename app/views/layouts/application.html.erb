@@ -10,6 +10,13 @@
   <div style="margin: 0 auto; text-align: center">
     <%= image_tag "logo.jpg", width: 600 %>
     <%= render 'layouts/header' %>
+      <% if flash[:alert] %>
+        <p class="alert alert-warning"><%= flash[:alert] %></p>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <p class="alert alert-success"><%= flash[:notice] %></p>
+      <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </div>
