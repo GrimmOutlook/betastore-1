@@ -1,9 +1,15 @@
 <ul class="nav nav-pills">
-  <li class="active"><%= link_to "Products", products_path, method: 'get' %></li>
+  <li><%= link_to "Products", products_path, method: 'get' %></li>
   <% if logged_in? %>
   	<li><%= link_to "Log Out", log_out_path, method: 'post' %></li>
   <% else %>
   	<li><%= link_to "Sign Up", sign_up_path, method: 'get' %></li>
   	<li><%= link_to "Log In", log_in_path, method: 'get' %></li>
   <% end %>
+  	<li><%= link_to cart_items_path, :class => 'cart' do %>
+  			Cart (<span id="cart_item_count"><%= cart_item_count %></span>)
+  		<% end %>
+  	</li>
 </ul>
+
+<!-- add if statment for page, set instance variable before filter on controller pages to make class='active' for <li> dynamic -->
