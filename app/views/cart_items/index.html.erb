@@ -12,4 +12,7 @@
 			<td><%= cart_item.product.price %></td>
 		</tr>
 	<% end %>
+	<tr>
+		<td><%= link_to "Checkout", checkout_path, class: 'btn btn-success' %></td>
+	</tr>
 </table>

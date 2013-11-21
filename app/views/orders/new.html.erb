@@ -1,4 +1,7 @@
-<% @page_title = "Checkout" %>
+<h1>Your Cart</h1>
 
-<h1><%= @page_title %></h1>
+<%= render 'order' %>
 
+<%= form_tag do %>
+  <%= submit_tag "Submit Order", class: 'btn btn-success' %>
+<% end %>

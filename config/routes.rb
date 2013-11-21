@@ -10,6 +10,9 @@ Betastore::Application.routes.draw do
   	resources :subscriptions
   	root :to => 'subscriptions#index'
 
+  	get '/checkout' => 'orders#new', as: 'checkout'
+  	post '/checkout' => 'orders#create'
+
   	get '/log_in'  => 'log_ins#new', as: 'log_in'
 	post '/log_in'  => 'log_ins#create'
 	post '/log_out' => 'log_ins#destroy', as: 'log_out'
@@ -18,10 +21,6 @@ Betastore::Application.routes.draw do
 	post '/sign_up' => 'customers#create'
 	# get '/sign_up' => 'customers#edit', as: 'update'
 	# post '/sign_up' => 'customers#update'
-
-	resources :orders do
-    	resource :refund
-	end 
 
 	get '/cart' => 'cart_items#index', as: 'cart_items'
 	post '/products/:product_id/cart_items' => 'cart_items#create', as: 'add_to_cart'
