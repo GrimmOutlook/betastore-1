@@ -47,7 +47,10 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'kaminari'
+
 group :development do
+  gem 'faker'
   gem 'hirb'
   gem 'quiet_assets'
 end
