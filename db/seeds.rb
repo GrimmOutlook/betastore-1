@@ -32,10 +32,10 @@ categories = Category.all
 
 clothing.products << Product.create!(name: 'Hat', price: 10.99, url: "http://pjb3.github.io/betastore/products/hat.jpg")
 miscellaneous.products << Product.create!(name: 'Sticker', price: 1.99, url: "http://pjb3.github.io/betastore/products/sticker.jpg")
-clothing.products << Product.create!(name: 'Shirt', price: 1.99, url: "http://pjb3.github.io/betastore/products/shirt.jpg")
-clothing.products << Product.create!(name: 'Hoodie', price: 1.99, url: "http://pjb3.github.io/betastore/products/hoodie.jpg")
-miscellaneous.products << Product.create!(name: 'iPhone Case', price: 1.99, url: "http://pjb3.github.io/betastore/products/iphone_case.jpg")
-miscellaneous.products << Product.create!(name: 'Journal', price: 1.99, url: "http://pjb3.github.io/betastore/products/journal.jpg")
+clothing.products << Product.create!(name: 'Shirt', price: 11.99, url: "http://pjb3.github.io/betastore/products/shirt.jpg")
+clothing.products << Product.create!(name: 'Hoodie', price: 19.99, url: "http://pjb3.github.io/betastore/products/hoodie.jpg")
+miscellaneous.products << Product.create!(name: 'iPhone Case', price: 5.99, url: "http://pjb3.github.io/betastore/products/iphone_case.jpg")
+miscellaneous.products << Product.create!(name: 'Journal', price: 3.99, url: "http://pjb3.github.io/betastore/products/journal.jpg")
 
 500.times do
   categories.sample.products << Product.create!(
