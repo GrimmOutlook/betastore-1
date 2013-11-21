@@ -10,16 +10,16 @@
 <div class="container">
 	<div class="row">
 		<% @products.each do |product| %>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<a href=#>
-					<p style="width:469px;height:469px;"><img src="<%= product.url %>"/></p>
+					<p><img src="<%= product.url %>" style="width:360px;height:360px;"/></p>
 					<h4><%= product.name %></h4>
 				</a>
 				<p><%= number_to_currency product.price %>
 					Added <%= time_ago_in_words product.created_at %> ago
 				</p>
 				<p>
-				<%= button_to "Add to Cart", add_to_cart_path(product), :class => "btn btn-default add_to_cart" %>
+				<%= button_to "Add to Cart", add_to_cart_path(product), :class => "btn btn-primary add_to_cart" %>
 				</p>
 			</div>
 		<% end %>
@@ -31,3 +31,5 @@
 <% else %>
  	<%= button_to "Log In", log_in_path, method: 'get', :class => "btn btn-default" %>
 <% end %>
+
+<%= paginate @products %>
