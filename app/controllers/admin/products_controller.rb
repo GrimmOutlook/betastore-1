@@ -22,7 +22,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     if @product.update(admin_product_params)
-      redirect_to @product, notice: 'Product was successfully updated.'
+      redirect_to admin_product_path(@product), notice: 'Product was successfully updated.'
     else
       render action: 'edit'
     end
