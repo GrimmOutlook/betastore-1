@@ -25,9 +25,21 @@
 # LineItem.create(order: order, quantity: 1, product: muffin)
 # LineItem.create(order: order, quantity: 1, product: coffee)
 
-hat = Product.create(name: 'Hat', price: 10.99, url: "http://pjb3.github.io/betastore/products/hat.jpg")
-sticker = Product.create(name: 'Sticker', price: 1.99, url: "http://pjb3.github.io/betastore/products/sticker.jpg")
-shirt = Product.create(name: 'Shirt', price: 1.99, url: "http://pjb3.github.io/betastore/products/shirt.jpg")
-hoodie = Product.create(name: 'Hoodie', price: 1.99, url: "http://pjb3.github.io/betastore/products/hoodie.jpg")
-iphone_case = Product.create(name: 'iPhone Case', price: 1.99, url: "http://pjb3.github.io/betastore/products/iphone_case.jpg")
-journal = Product.create(name: 'Journal', price: 1.99, url: "http://pjb3.github.io/betastore/products/journal.jpg")
+clothing = Category.create!(name: 'Clothing')
+miscellaneous = Category.create!(name: 'Miscellaneous')
+
+categories = Category.all
+
+clothing.products << Product.create!(name: 'Hat', price: 10.99, url: "http://pjb3.github.io/betastore/products/hat.jpg")
+miscellaneous.products << Product.create!(name: 'Sticker', price: 1.99, url: "http://pjb3.github.io/betastore/products/sticker.jpg")
+clothing.products << Product.create!(name: 'Shirt', price: 1.99, url: "http://pjb3.github.io/betastore/products/shirt.jpg")
+clothing.products << Product.create!(name: 'Hoodie', price: 1.99, url: "http://pjb3.github.io/betastore/products/hoodie.jpg")
+miscellaneous.products << Product.create!(name: 'iPhone Case', price: 1.99, url: "http://pjb3.github.io/betastore/products/iphone_case.jpg")
+miscellaneous.products << Product.create!(name: 'Journal', price: 1.99, url: "http://pjb3.github.io/betastore/products/journal.jpg")
+
+500.times do
+  categories.sample.products << Product.create!(
+    name: Faker::Commerce.product_name,
+    price: (rand(20) + rand(99)/100.0),
+  	url: "http://axcelonbp.com/wp-content/uploads/2013/01/Comingsoon.png")
+ end
