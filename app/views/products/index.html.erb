@@ -1,20 +1,29 @@
-<% @page_title = "Products" %>
-<h1><b><%= @page_title %></b></h1>
+<div class="container">
+	<div class="row">
+		<div id="products-page-title" class="col-md-4">
+			<div id="cart" class="well" style="display: none"></div>
+		</div>
 
-<% if logged_in? %>
-	<h3>Welcome <%= current_customer.name %></h3>
-<% end %>
-
-<div id="cart" class="well" style="display: none"></div>
+		<div id="welcome" class="col-md-4">
+			<% @page_title = "Products" %>
+			<h1><b><%= @page_title %></b></h1>
+		</div>
+		<div class="col-md-4">
+			<% if logged_in? %>
+				<h4>Welcome <%= current_customer.name %></h4>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 <div class="container">
 	<div class="row">
 		<% @products.each do |product| %>
 			<div class="col-md-4">
-				<a href=#>
+				<%= link_to "/products/show" do %>
 					<p><img src="<%= product.url %>" style="width:360px;height:360px;"/></p>
 					<h4><%= product.name %></h4>
-				</a>
+				<% end %>
 				<p><%= number_to_currency product.price %>
 					Added <%= time_ago_in_words product.created_at %> ago
 				</p>
