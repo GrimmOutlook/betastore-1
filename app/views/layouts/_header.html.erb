@@ -1,15 +1,44 @@
-<ul class="nav nav-pills">
-  <li><%= link_to "Products", products_path, method: 'get' %></li>
-  <% if logged_in? %>
-  	<li><%= link_to "Log Out", log_out_path, method: 'post' %></li>
+<div class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li><%= link_to "Products", products_path, method: 'get' %></li>
+    <% if logged_in? %>
+    	<li><%= link_to "Log Out", log_out_path, method: 'post' %></li>
+    <% else %>
+    	<li><%= link_to "Sign Up", sign_up_path, method: 'get' %></li>
+    	<li><%= link_to "Log In", log_in_path, method: 'get' %></li>
+    <% end %>
+    <li><%= link_to cart_items_path, :class => 'cart' do %>
+    		Cart (<span id="cart_item_count"><%= cart_item_count %></span>)
+      <% end %>
+    </li>
+  </ul>
+  
+  <% if current_page?(controller: 'products', action: 'index') %>
+    <ul class="nav navbar-nav navbar-right">
+      <li><p class="navbar-text">Sort by:</p></li>
+
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Price <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% [4.99, 9.99, 14.99].each do |price| %>
+              <li><%= link_to "#{price} and up", min_price: price %></li>
+            <% end %>
+          </ul>
+        </li>
+
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% @categories.each do |category| %>
+              <li><%= link_to category.name, category_products_path(category) %></li>
+            <% end %>
+          </ul>
+      </li>    
+    </ul>
   <% else %>
-  	<li><%= link_to "Sign Up", sign_up_path, method: 'get' %></li>
-  	<li><%= link_to "Log In", log_in_path, method: 'get' %></li>
   <% end %>
-  	<li><%= link_to cart_items_path, :class => 'cart' do %>
-  			Cart (<span id="cart_item_count"><%= cart_item_count %></span>)
-  		<% end %>
-  	</li>
-</ul>
+</div>
+
+
 
 <!-- add if statment for page, set instance variable before filter on controller pages to make class='active' for <li> dynamic -->
