@@ -37,9 +37,9 @@ clothing.products << Product.create!(name: 'Hoodie', price: 19.99, url: "http://
 miscellaneous.products << Product.create!(name: 'iPhone Case', price: 5.99, url: "http://pjb3.github.io/betastore/products/iphone_case.jpg")
 miscellaneous.products << Product.create!(name: 'Journal', price: 3.99, url: "http://pjb3.github.io/betastore/products/journal.jpg")
 
-500.times do
-  categories.sample.products << Product.create!(
-    name: Faker::Commerce.product_name,
-    price: (rand(20) + rand(99)/100.0),
-  	url: "http://axcelonbp.com/wp-content/uploads/2013/01/Comingsoon.png")
- end
+# 500.times do
+#   categories.sample.products << Product.create!(
+#     name: Faker::Commerce.product_name,
+#     price: (rand(20) + rand(99)/100.0),
+#   	url: "http://axcelonbp.com/wp-content/uploads/2013/01/Comingsoon.png")
+#  end
