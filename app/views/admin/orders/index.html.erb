@@ -1,0 +1,33 @@
+<h1>Orders</h1>
+
+<table class="table">
+
+<thead>
+	<tr>
+		<td>Order ID</td>
+		<td>Customer ID</td>
+		<td>Placed At</td>
+		<td>Total Amount</td>
+		<td>Created At</td>
+		<td>Updated At</td>
+		<td>Credit Card ID</td>
+		<td>Tracking Number</td>
+	</tr>
+</thead>
+
+<tbody>
+<% @orders.each do |order| %>
+	<tr>
+		<td><%= order.id %></td>
+		<td><%= order.customer_id %></td>
+		<td><%= order.placed_at %></td>
+		<td><%= order.total_amount %></td>
+		<td><%= order.created_at %></td>
+		<td><%= order.updated_at %></td>
+		<td><%= order.credit_card_id %></td>
+		<td><%= order.tracking_number %></td>
+	</tr>
+<% end %>
+</tbody>
+
+</table>
