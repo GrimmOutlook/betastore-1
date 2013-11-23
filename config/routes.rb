@@ -2,6 +2,7 @@ Betastore::Application.routes.draw do
 
 	namespace :admin do
 		resources :products
+		get '/orders' => 'orders#index', as: 'orders_path'
 		root :to => 'products#index'
 	end
 
