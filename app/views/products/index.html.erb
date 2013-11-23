@@ -1,14 +1,14 @@
 <div class="container">
 	<div class="row">
-		<div id="products-page-title" class="col-md-4">
+		<div class="col-md-4">
 			<div id="cart" class="well" style="display: none"></div>
 		</div>
 
-		<div id="welcome" class="col-md-4">
+		<div id="products-page-title" class="col-md-4">
 			<% @page_title = "Products" %>
 			<h1><b><%= @page_title %></b></h1>
 		</div>
-		<div class="col-md-4">
+		<div id="welcome" class="col-md-4">
 			<% if logged_in? %>
 				<h4>Welcome <%= current_customer.name %></h4>
 			<% end %>
