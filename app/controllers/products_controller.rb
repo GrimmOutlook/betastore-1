@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 	skip_before_filter :require_log_in
 
 	def index
+		@products_page = true
 	    @categories = Category.all
 
 	    scope = Product
